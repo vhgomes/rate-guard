@@ -1,0 +1,17 @@
+listen_addr: ":50051"
+metrics_addr: ":9090"
+
+redis:
+  addr: "redis:6379"
+  password: ""
+  db: 0
+
+# Tenant configurations
+tenants:
+  tenant-a:
+    login:
+      limit: 5
+      window_seconds: 60
+    api_write:
+      limit: 100
+      window_seconds: 60

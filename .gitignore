@@ -1,0 +1,36 @@
+# Binaries and executables
+bin/
+rate-guard
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Dependency directories
+# vendor/ # Descomente se você NÃO quiser versionar suas dependências
+
+# IDEs/Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+*.log
+logs.json
+
+# Docker
+.docker/
+
+# Configuration
+# config.yaml # Geralmente ignorado se contiver segredos, mas mantido se for apenas exemplo
+card.md
+**/*.md

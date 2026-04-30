@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package ratelimit.v1;
+
+option go_package = "github.com/vhgomes/rate-guard/pkg/pb/ratelimit/v1";
+
+service RateLimitService {
+  rpc CheckRateLimit(CheckRateLimitRequest) returns (CheckRateLimitResponse);
+}
+
+message CheckRateLimitRequest {
+  string key = 1;              // id do cliente, ex: tenant_id ou user_id
+  string limit_id = 2;         // tipo de serviço utilizado para o ratelimiter(login, search, etc)
+}
+
+message CheckRateLimitResponse {
+  bool allowed = 1;            // se a requisição foi permitida
+  int32 remaining = 2;         // quantidade de requisições restantes
+  int64 retry_after_ms = 3;    // tempo em milissegundos para tentar novamente (0 se allowed=true)
+}
