@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rate-guard
+  namespace: dev
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rate-guard
+  template:
+    metadata:
+      labels:
+        app: rate-guard
+    spec:
+      containers:
+      - name: app
+        image: rate-guard:v1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 50051
